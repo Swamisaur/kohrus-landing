@@ -1,0 +1,24 @@
+.featured-assets { padding: 5rem 0; background: linear-gradient(180deg, #F8FAFC 0%, #F1F5F9 100%); }
+.featured-header { display: flex; align-items: flex-end; justify-content: space-between; margin-bottom: 2.5rem; flex-wrap: wrap; gap: 1rem; }
+.featured-header-left { display: flex; flex-direction: column; gap: 0.5rem; }
+.featured-label { font-size: 12px; font-weight: 700; letter-spacing: 1.5px; color: var(--color-primary); text-transform: uppercase; }
+.featured-title { font-size: 32px; font-weight: 700; letter-spacing: -0.5px; color: var(--color-foreground); }
+.featured-view-all { display: flex; align-items: center; gap: 0.375rem; font-size: 14px; font-weight: 500; color: var(--color-primary); text-decoration: none; cursor: pointer; }
+.featured-view-all:hover { color: var(--color-purple); }
+.featured-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+.featured-card { background: white; border: 1px solid var(--color-border); border-radius: 16px; overflow: hidden; cursor: pointer; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.07); transition: all var(--transition-base); }
+.featured-card:hover { box-shadow: 0 8px 24px rgba(15, 23, 42, 0.12); }
+.card-image-container { position: relative; width: 100%; height: 140px; overflow: hidden; }
+.card-image { width: 100%; height: 100%; object-fit: cover; }
+.card-gradient-overlay { position: absolute; inset: 0; mix-blend-mode: overlay; }
+.card-body { padding: 1rem; display: flex; flex-direction: column; gap: 0.75rem; }
+.card-title { font-size: 16px; font-weight: 600; color: var(--color-foreground); }
+.card-artist { font-size: 13px; color: var(--color-muted); }
+.card-stats { display: flex; justify-content: space-between; align-items: center; }
+.card-price { display: flex; flex-direction: column; gap: 0.125rem; }
+.price-label { font-size: 11px; color: var(--color-muted); }
+.price-value { font-size: 14px; font-weight: 600; color: var(--color-foreground); }
+.card-change { display: flex; align-items: center; gap: 0.25rem; color: #059669; }
+.change-value { font-size: 12px; font-weight: 600; color: #059669; }
+@media (max-width: 1024px) { .featured-grid { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 768px) { .featured-assets { padding: 3rem 0; } .featured-grid { grid-template-columns: 1fr; } .featured-title { font-size: 28px; } }
