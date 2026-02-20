@@ -28,7 +28,7 @@ const Navigation: React.FC = () => {
       transition={{ duration: 0.5, ease: 'easeOut' }}
     >
       <div className="container nav-container">
-        <motion.a href="/" className="logo" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+        <motion.a href={`${import.meta.env.BASE_URL || '/'}`} className="logo" whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
           kohrus
         </motion.a>
         <div className="nav-links">

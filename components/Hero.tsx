@@ -68,7 +68,7 @@ const Hero: React.FC = () => {
           <div className="hero-card-label">Live deal</div>
           <div className="card-image">
             <img
-              src="/hero-card.svg"
+              src={`${import.meta.env.BASE_URL}hero-card.svg`}
               alt="Featured: Midnight Dreams"
               className="card-image-img"
               onError={(e) => {
