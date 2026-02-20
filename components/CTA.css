@@ -30,9 +30,42 @@
 .cta-btn-secondary { background: transparent; color: white; border: 1px solid rgba(255, 255, 255, 0.27); }
 .cta-btn-secondary:hover { background: rgba(255, 255, 255, 0.1); color: white; }
 @media (max-width: 768px) {
-  .cta-section { padding: 3rem 0; }
-  .cta-card { padding: 2.5rem 1.5rem; }
-  .cta-title { font-size: 28px; }
-  .cta-buttons { flex-direction: column; width: 100%; }
-  .cta-btn-primary, .cta-btn-secondary { width: 100%; justify-content: center; }
+  .cta-section {
+    padding: 3rem 0;
+  }
+
+  .cta-card {
+    padding: 2.5rem 1.5rem;
+  }
+
+  .cta-title {
+    font-size: 1.75rem;
+  }
+
+  .cta-subtext {
+    font-size: 0.9375rem;
+  }
+
+  .cta-buttons {
+    flex-direction: column;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .cta-btn-primary,
+  .cta-btn-secondary {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+  }
+}
+
+@media (max-width: 380px) {
+  .cta-card {
+    padding: 2rem 1.25rem;
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
+  }
 }

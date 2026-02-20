@@ -1,27 +1,59 @@
 # Kohrus Landing — Development Log
 
-This project is the **Kohrus** marketing landing page (“The Stock Market for Music”). It was separated from the Epic Emoji Expedition repo so Kohrus has its own codebase and deployment.
+Landing page for **Kohrus** (“The Stock Market for Music”). Standalone repo; deploys to GitHub Pages.
 
 ---
 
-### **Project creation and transfer**
+## Setup and scope
 
-- **New repo:** Standalone `kohrus-landing` project containing only the Kohrus landing page.
-- **Scope:** Single-page site with Navigation, Hero, Social Proof, How It Works, Featured Assets, CTA, and Footer. No game or Epic Emoji Expedition code.
-- **Stack:** React 19, TypeScript, Vite, Framer Motion, Lucide React. Build: `npm run build`. Dev: `npm run dev` (base path `/` locally).
-- **Deployment:** GitHub Actions workflow deploys `dist` to the `gh-pages` branch. Production base path: `/kohrus/` for repo `Swamisaur/kohrus`.
-- **Assets:** Hero card uses local `public/hero-card.svg` with Unsplash fallback on image error. All section images use Unsplash URLs.
-- **Copy and design:** Hero is conversion-focused (single primary CTA, trust line, “Earn from music. Like the stock market.”). Rest of sections aligned with existing Kohrus messaging.
+- **Repo:** `kohrus-landing` — only the Kohrus marketing landing (no game or other apps).
+- **Stack:** React 19, TypeScript, Vite, Framer Motion, Lucide React.
+- **Deploy:** GitHub Actions → build `dist` → push to `gh-pages`. Live at **https://swamisaur.github.io/kohrus-landing/**.
+- **Base path:** `/kohrus-landing/` in production (Vite `base`).
 
 ---
 
-### **File layout**
+## Sections
 
-- `App.tsx` — Root: renders all sections in order.
-- `components/` — Navigation, Hero, SocialProof, HowItWorks, FeaturedAssets, CTA, Footer (each with `.tsx` + `.css`).
-- `public/hero-card.svg` — Local hero card image.
-- `index.html`, `index.tsx`, `index.css` — Entry and global styles.
-- `vite.config.ts` — Base path: `/` in dev, `/kohrus/` in production.
-- `.github/workflows/deploy.yml` — Build and push to `gh-pages`.
+| Section         | Role                                      |
+|-----------------|-------------------------------------------|
+| Navigation      | Fixed nav, logo, links, CTAs, mobile menu |
+| Hero            | Value prop, primary CTA, trust row, live deal card |
+| Social Proof    | Trust metrics (investors, artists, deployed) |
+| How It Works    | 3 steps: Browse, Invest, Earn & Trade      |
+| Featured Assets | Live deals grid (4 cards)                 |
+| CTA             | Final pitch + Create account              |
+| Footer          | Brand, platform/artists/legal links, social |
 
-Future work (new features, copy changes, or deployment tweaks) can be logged below with date and short description.
+---
+
+## Changelog
+
+### 2026-02 — Micro-animations, pitch, mobile, images
+
+- **Micro-animations:** Shared `utils/motion.ts` (ease, stagger, transition). Staggered entrances, hover lifts, card/image scale, progress fill, nav link motion, CTA and footer button feedback. Subtle only.
+- **Pitch:** Stronger copy across Hero (“Own a piece of the songs that move the world”), How It Works (“Join India’s first music exchange…”), Featured (“Invest in music that’s trending now”), CTA (“Your favourite songs could be paying you”), Footer tagline.
+- **Mobile:** Nav hamburger + slide-out drawer on small screens. Touch targets ≥44–48px for buttons and footer links. Breakpoints at 768px and 380px; container padding and section spacing tuned for small viewports.
+- **Images:** Hero and Featured use **Pexels** URLs with fallbacks; How It Works steps use Pexels + fallback. All images: `loading="lazy"` (except hero), `decoding="async"`, descriptive `alt`, `onError` fallback. No Unsplash; consistent Pexels CDN.
+- **Misc:** 404.html redirects to full GitHub Pages URL. Scoped CSS for Hero vs Featured card styles to avoid clashes.
+
+### Earlier
+
+- **Project creation:** Extracted from main Kohrus/Epic Emoji repo. Vite base `/kohrus-landing/`, deploy workflow with `contents: write`, concurrency, `allow_empty_commit`.
+- **Hero:** Conversion-focused copy, single primary CTA, trust row, live deal card (image + metrics + progress + CTA).
+- **How It Works:** 3 steps with Pexels images, number+icon badges, gradient overlays.
+
+---
+
+## File reference
+
+| Path | Purpose |
+|------|---------|
+| `App.tsx` | Root; renders all sections in order |
+| `components/*.tsx` / `*.css` | Section UI and styles |
+| `utils/motion.ts` | Shared Framer Motion config |
+| `public/404.html` | GitHub Pages 404 → redirect to site root |
+| `public/hero-card.svg` | Legacy hero image (optional; hero uses Pexels) |
+| `.github/workflows/deploy.yml` | Build + deploy to `gh-pages` |
+
+Future changes: add a short dated entry above under **Changelog**.

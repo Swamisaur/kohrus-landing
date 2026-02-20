@@ -37,4 +37,30 @@ html { scroll-behavior: smooth; }
   margin: 0 auto;
   padding: 0 3rem;
 }
-@media (max-width: 768px) { .container { padding: 0 1.5rem; } }
+
+@media (max-width: 768px) {
+  .container {
+    padding: 0 1.5rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .container {
+    padding: 0 1rem;
+  }
+}
+
+/* Touch targets on small / touch devices */
+@media (max-width: 768px) {
+  .btn-primary,
+  .btn-secondary,
+  .card-cta,
+  .cta-btn-primary,
+  .cta-btn-secondary {
+    min-height: 48px;
+  }
+
+  .footer-link {
+    min-height: 44px;
+  }
+}

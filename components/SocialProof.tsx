@@ -3,27 +3,36 @@ import { motion } from 'framer-motion';
 import './SocialProof.css';
 
 const stats = [
-  { label: '2,500+ Investors' },
-  { label: '150+ Artists' },
-  { label: '₹12Cr+ Deployed' },
+  { value: '2,500+', label: 'Investors' },
+  { value: '150+', label: 'Artists' },
+  { value: '₹12Cr+', label: 'Deployed' },
 ];
 
 const SocialProof: React.FC = () => (
-  <section className="social-proof">
+  <section className="social-proof" aria-label="Trust metrics">
     <div className="container">
       <div className="social-proof-content">
-        <span className="proof-label">Trusted by artists & investors across</span>
+        <motion.span
+          className="proof-label"
+          initial={{ opacity: 0, y: 6 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.35 }}
+        >
+          Trusted by artists & investors
+        </motion.span>
         {stats.map((stat, index) => (
           <React.Fragment key={stat.label}>
-            {index > 0 && <span className="proof-dot" />}
+            {index > 0 && <span className="proof-dot" aria-hidden />}
             <motion.span
               className="proof-stat"
-              initial={{ opacity: 0, y: 10 }}
+              initial={{ opacity: 0, y: 8 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
+              transition={{ delay: index * 0.08, duration: 0.35 }}
+              whileHover={{ y: -1 }}
             >
-              {stat.label}
+              <strong className="proof-value">{stat.value}</strong> {stat.label}
             </motion.span>
           </React.Fragment>
         ))}

@@ -33,7 +33,7 @@ const Footer: React.FC = () => (
       <div className="footer-top">
         <div className="footer-brand">
           <h3 className="footer-logo">kohrus</h3>
-          <p className="footer-description">The Stock Market for Music. Invest in songs, earn royalties, trade shares.</p>
+          <p className="footer-description">India’s first music exchange. Own a piece of songs, earn monthly royalties, trade 24/7.</p>
         </div>
         <div className="footer-column">
           <h4 className="footer-column-title">Platform</h4>
@@ -67,8 +67,18 @@ const Footer: React.FC = () => (
           {socialLinks.map((social, index) => {
             const Icon = social.icon;
             return (
-              <motion.a key={index} href={social.href} target="_blank" rel="noopener noreferrer" className="social-icon" whileHover={{ scale: 1.2, color: 'white' }} whileTap={{ scale: 0.9 }}>
-                <Icon size={18} />
+              <motion.a
+                key={index}
+                href={social.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="social-icon"
+                aria-label={`${social.href.includes('twitter') ? 'Twitter' : social.href.includes('instagram') ? 'Instagram' : 'LinkedIn'}`}
+                whileHover={{ scale: 1.15, color: 'white' }}
+                whileTap={{ scale: 0.95 }}
+                transition={{ duration: 0.2 }}
+              >
+                <Icon size={18} aria-hidden />
               </motion.a>
             );
           })}

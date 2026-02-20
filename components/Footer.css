@@ -6,8 +6,26 @@
 .footer-column { display: flex; flex-direction: column; gap: 0.75rem; }
 .footer-column-title { font-size: 13px; font-weight: 600; color: white; margin-bottom: 0.25rem; }
 .footer-links { list-style: none; display: flex; flex-direction: column; gap: 0.75rem; }
-.footer-link { font-size: 13px; color: var(--color-muted-light); text-decoration: none; transition: color var(--transition-fast); }
-.footer-link:hover { color: white; }
+.footer-link {
+  font-size: 13px;
+  color: var(--color-muted-light);
+  text-decoration: none;
+  transition: color 0.2s ease;
+  display: inline-block;
+  padding: 0.25rem 0;
+}
+
+.footer-link:hover {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .footer-link {
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+  }
+}
 .footer-divider { height: 1px; background: #1E293B; margin-bottom: 1.5rem; }
 .footer-bottom { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 1rem; }
 .footer-copyright { font-size: 12px; color: var(--color-muted); }
