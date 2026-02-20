@@ -7,7 +7,7 @@ Landing page for **Kohrus**: invest in songs and albums, earn royalty payouts, t
 - **Stack:** React 19, TypeScript, Vite, Framer Motion, Lucide React
 - **Run locally:** `npm install` then `npm run dev` → http://localhost:5173
 - **Build:** `npm run build`
-- **Live site (after enabling Pages):** https://swamisaur.github.io/kohrus-landing/
+- **Live site:** **[https://swamisaur.github.io/kohrus-landing/](https://swamisaur.github.io/kohrus-landing/)** (use this exact link; add trailing slash if you get 404)
 
 ## GitHub Pages setup (one-time)
 
